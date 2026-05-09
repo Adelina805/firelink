@@ -2,6 +2,7 @@ import type { FireConditionsViewModel } from "@/lib/fireConditionsAdapter";
 import { lastReportedGrowthDelta } from "@/lib/fireConditionsAdapter";
 import { AlertTimeline } from "./AlertTimeline";
 import { FireGrowthChart } from "./FireGrowthChart";
+import { LiveFireMap } from "./LiveFireMap";
 import { FireStatusCards } from "./FireStatusCards";
 import { FirePastUpdates } from "./FirePastUpdates";
 import { LatestFireUpdate } from "./LatestFireUpdate";
@@ -55,26 +56,26 @@ export function FireConditionsSection({
       ) : null}
 
       <div className="space-y-6">
+        <LiveFireMap />
+
         <FireStatusCards data={data} />
 
         <FireGrowthChart series={data.growthSeries} />
 
         <div className="flex flex-col gap-6">
-          <div>
-            <AlertTimeline items={data.alertTimeline} />
-          </div>
-          <div className="flex flex-col gap-6">
-            <LatestFireUpdate
-              fireName={data.latestIncident.name}
-              status={data.latestIncident.status}
-              timestampIso={data.latestIncident.timestampIso}
-              acres={data.latestIncident.acres}
-              containmentPct={data.latestIncident.containmentPct}
-              growthDelta={growthDelta}
-              alert={latestFireWeather}
-            />
-            <FirePastUpdates items={data.pastIncidentUpdates} />
-          </div>
+          <AlertTimeline items={data.alertTimeline} />
+
+          <LatestFireUpdate
+            fireName={data.latestIncident.name}
+            status={data.latestIncident.status}
+            timestampIso={data.latestIncident.timestampIso}
+            acres={data.latestIncident.acres}
+            containmentPct={data.latestIncident.containmentPct}
+            growthDelta={growthDelta}
+            alert={latestFireWeather}
+          />
+
+          <FirePastUpdates items={data.pastIncidentUpdates} />
         </div>
       </div>
     </section>

@@ -69,11 +69,11 @@ export function filterNeedsByCategory(
       case "transport":
         return /ride|transport|evacuat/.test(l);
       case "medical":
-        return /medical|power/.test(l);
+        return /medical|power|prescription|oxygen/.test(l);
       case "shelter":
         return /shelter/.test(l);
       case "pets":
-        return /pet/.test(l);
+        return /pet|animal/.test(l);
       case "status":
         return /marked safe|safe/.test(l);
       default:

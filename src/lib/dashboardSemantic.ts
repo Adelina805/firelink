@@ -16,8 +16,8 @@ export const NEEDS_NOW_PRIORITY_LABELS = [
 export function semanticForNeedLabel(label: string): SemanticTier {
   const l = norm(label);
   if (/evacuation/.test(l) && /ride/.test(l)) return "urgent";
-  if (l.includes("pet") && l.includes("transport")) return "warning";
-  if (/medical|power support/.test(l)) return "warning";
+  if (/pet|animal/.test(l) && /transport|boarding/.test(l)) return "warning";
+  if (/medical|power support|prescription|oxygen/.test(l)) return "warning";
   if (/shelter/.test(l)) return "info";
   if (/marked safe/.test(l)) return "safe";
   return "neutral";

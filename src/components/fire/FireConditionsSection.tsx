@@ -49,12 +49,6 @@ export function FireConditionsSection({
         </h2>
       ) : null}
 
-      {data.latestAlert.timestampIso && data.latestAlert.area ? (
-        <p className="mb-4 text-xs leading-snug text-(--muted-foreground) sm:text-sm">
-          Alert area: {data.latestAlert.area}
-        </p>
-      ) : null}
-
       <div className="space-y-6">
         <LiveEatonMap />
 

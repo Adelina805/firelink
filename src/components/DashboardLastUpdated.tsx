@@ -21,15 +21,15 @@ export function DashboardLastUpdated() {
   }, []);
 
   return (
-    <p className="text-xs font-medium text-[var(--muted-foreground)]">
-      Last updated:{" "}
+    <p className="inline-flex items-center gap-1.5 text-[11px] font-medium tracking-[0.01em] text-(--muted-foreground) sm:text-xs">
+      <span>Last updated:</span>
       {ts === null ? (
-        <span className="font-mono tabular-nums text-[var(--foreground)]">
+        <span className="font-mono tabular-nums text-foreground">
           <span className="sr-only">Loading time</span>
           —
         </span>
       ) : (
-        <time dateTime={ts.toISOString()} className="font-mono tabular-nums text-[var(--foreground)]">
+        <time dateTime={ts.toISOString()} className="font-mono tabular-nums text-foreground">
           {formatTime(ts)}
         </time>
       )}

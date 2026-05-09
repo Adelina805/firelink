@@ -23,8 +23,8 @@ export default async function FireConditionsPage({ params }: Props) {
   if (!fireData) {
     return (
       <div className="flex min-h-[40vh] flex-col items-center justify-center py-12 text-center">
-        <h2 className="text-xl font-bold text-[var(--foreground)]">No fire conditions data</h2>
-        <p className="mt-3 max-w-md text-[var(--muted-foreground)]">
+        <h2 className="text-xl font-bold text-foreground">No fire conditions data</h2>
+        <p className="mt-3 max-w-md text-(--muted-foreground)">
           Check back when incident and weather feeds are connected.
         </p>
         <Link
@@ -39,12 +39,6 @@ export default async function FireConditionsPage({ params }: Props) {
 
   return (
     <div>
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--muted-foreground)]">
-        Mock threat context — not a replacement for official sources
-      </p>
-      <h2 className="mb-6 text-lg font-bold tracking-tight text-[var(--foreground)] sm:text-xl">
-        Fire Conditions
-      </h2>
       <FireConditionsSection data={fireData} showHeading={false} />
     </div>
   );

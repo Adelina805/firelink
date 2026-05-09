@@ -29,7 +29,7 @@ export function DashboardHeader({ zip }: { zip: string }) {
             </span>
           </div>
           <h1 className="mt-1 text-base font-bold leading-tight tracking-tight text-[var(--foreground)] sm:text-lg">
-            Dashboard
+            Eaton Fire
           </h1>
           <div className="mt-1">
             <DashboardLastUpdated />
@@ -37,8 +37,8 @@ export function DashboardHeader({ zip }: { zip: string }) {
           <p className="mt-2 text-sm leading-snug break-words text-[var(--muted-foreground)]">
             ZIP{" "}
             <span className="font-mono font-semibold text-[var(--foreground)]">{zip}</span>
-            <span className="mx-1.5 text-[var(--muted-foreground)]">·</span>
-            <span>Anonymous counts only — no personally identifiable information.</span>
+            <span className="mx-1.5 text-[var(--muted-foreground)]">|</span>
+            <span>Los Angeles County — Altadena/Pasadena Foothills</span>
           </p>
         </div>
         <div className="shrink-0 pt-0.5">

@@ -4,6 +4,8 @@ import type { ActivityItem } from "@/lib/types";
 
 interface ActivityLogProps {
   events: ActivityItem[];
+  /** Default newest first */
+  sortOrder?: "newest" | "oldest";
 }
 
 function formatTime(iso: string) {
@@ -19,10 +21,15 @@ function formatTime(iso: string) {
   }
 }
 
-export function ActivityLog({ events }: ActivityLogProps) {
-  const sorted = [...events].sort(
-    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
-  );
+export function ActivityLog({
+  events,
+  sortOrder = "newest",
+}: ActivityLogProps) {
+  const sorted = [...events].sort((a, b) => {
+    const ta = new Date(a.timestamp).getTime();
+    const tb = new Date(b.timestamp).getTime();
+    return sortOrder === "newest" ? tb - ta : ta - tb;
+  });
 
   return (
     <ul className="space-y-3" aria-live="polite">

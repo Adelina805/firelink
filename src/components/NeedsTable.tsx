@@ -6,8 +6,8 @@ interface NeedsTableProps {
 
 export function NeedsTable({ needs }: NeedsTableProps) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/12 bg-black/35">
-      <table className="w-full border-collapse text-left text-sm">
+    <div className="-mx-1 overflow-x-auto rounded-2xl border border-white/12 bg-black/35 sm:mx-0">
+      <table className="w-full min-w-[280px] border-collapse text-left text-sm">
         <thead className="bg-white/5 text-xs uppercase tracking-wider text-amber-200/90">
           <tr>
             <th className="px-5 py-3 font-semibold">Need</th>

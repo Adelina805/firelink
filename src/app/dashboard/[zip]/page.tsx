@@ -12,9 +12,9 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { zip } = await params;
   return {
-    title: `FireLink — ZIP ${zip}`,
+    title: `FireLink — Live · ${zip}`,
     description:
-      "Community readiness overview, needs queue, and recent SMS activity — anonymous aggregates only.",
+      "Live activity overview: recent SMS events, needs snapshot, and key metrics — anonymous aggregates only.",
   };
 }
 

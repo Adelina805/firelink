@@ -11,9 +11,9 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { zip } = await params;
   return {
-    title: `FireLink — Households · ${zip}`,
+    title: `FireLink — Community · ${zip}`,
     description:
-      "Anonymous household status and readiness for this ZIP — no PII.",
+      "Community snapshot: anonymous ID-level status and readiness for this ZIP — no PII.",
   };
 }
 
@@ -40,7 +40,7 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
   return (
     <div>
       <h2 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
-        Anonymous household status
+        Community snapshot
       </h2>
       <p className="mb-6 text-sm text-[var(--muted-foreground)]">
         Snapshot by anonymous ID — no names or addresses.
@@ -48,7 +48,7 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
 
       <section
         className="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-4"
-        aria-label="Household summary counts"
+        aria-label="Community summary counts"
       >
         <StatCard label="With pets" value={stats.pets} tone="neutral" />
         <StatCard

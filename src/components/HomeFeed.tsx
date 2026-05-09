@@ -39,7 +39,7 @@ export function HomeFeed({ events }: HomeFeedProps) {
           id="activity-feed-heading"
           className="mb-1 text-sm font-bold uppercase tracking-wide text-[var(--foreground)]"
         >
-          Activity feed
+          Live feed
         </h2>
         <p className="mb-3 text-xs text-[var(--muted-foreground)]">
           Recent SMS and status events — color tags mirror response priority.

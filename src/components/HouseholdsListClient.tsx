@@ -38,7 +38,7 @@ export function HouseholdsListClient({ households }: HouseholdsListClientProps) 
           options={SORT_OPTIONS}
           value={sort}
           onChange={setSort}
-          menuLabel="Sort households"
+          menuLabel="Sort community entries"
           buttonLabel="Sort"
         />
       </div>

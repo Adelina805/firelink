@@ -29,7 +29,7 @@ export function DashboardHeader({ zip }: { zip: string }) {
             </span>
           </div>
           <h1 className="mt-1 text-base font-bold leading-tight tracking-tight text-[var(--foreground)] sm:text-lg">
-            Community dashboard
+            Live operations
           </h1>
           <div className="mt-1">
             <DashboardLastUpdated />

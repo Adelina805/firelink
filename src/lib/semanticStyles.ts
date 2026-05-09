@@ -57,6 +57,24 @@ export const activityPillClasses: Record<SemanticTier, string> = {
     "border-slate-200 bg-slate-100 text-slate-800 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200",
 };
 
+/** Household card: left accent + subtle surface (status signal, not loud). */
+export const householdCardAccentClasses: Record<SemanticTier, string> = {
+  urgent:
+    "border-y border-r border-[var(--card-border)] border-l-[3px] border-l-[#DC2626] bg-red-50/50 dark:border-y-slate-800 dark:border-r-slate-800 dark:bg-red-950/15 dark:border-l-red-500",
+  warning:
+    "border-y border-r border-[var(--card-border)] border-l-[3px] border-l-[#F97316] bg-orange-50/45 dark:border-y-slate-800 dark:border-r-slate-800 dark:bg-orange-950/15 dark:border-l-orange-500",
+  safe:
+    "border-y border-r border-[var(--card-border)] border-l-[3px] border-l-[#16A34A] bg-green-50/45 dark:border-y-slate-800 dark:border-r-slate-800 dark:bg-green-950/15 dark:border-l-green-500",
+  info:
+    "border-y border-r border-[var(--card-border)] border-l-[3px] border-l-[#2563EB] bg-blue-50/45 dark:border-y-slate-800 dark:border-r-slate-800 dark:bg-blue-950/18 dark:border-l-blue-500",
+  neutral:
+    "border border-[var(--card-border)] bg-[var(--card)]",
+};
+
+/** Softer orange accent for “Preparing” (distinct from medical power). */
+export const householdPreparingCardClasses =
+  "border-y border-r border-[var(--card-border)] border-l-[3px] border-l-[#FB923C]/90 bg-orange-50/25 dark:border-y-slate-800 dark:border-r-slate-800 dark:bg-orange-950/10 dark:border-l-orange-400/70";
+
 /** Household status pill */
 export const statusPillClasses: Record<SemanticTier, string> = {
   urgent:
@@ -70,3 +88,7 @@ export const statusPillClasses: Record<SemanticTier, string> = {
   neutral:
     "border-slate-300/80 bg-slate-100 text-slate-800 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200",
 };
+
+/** Muted orange pill for “Preparing” (vs brighter medical/warning). */
+export const preparingStatusPillClasses =
+  "border-orange-200/70 bg-orange-50/70 text-orange-900 dark:border-orange-800/45 dark:bg-orange-950/25 dark:text-orange-200/95";

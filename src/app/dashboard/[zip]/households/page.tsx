@@ -1,5 +1,6 @@
+import { CommunityNeedsNow } from "@/components/CommunityNeedsNow";
+import { CommunitySnapshot } from "@/components/CommunitySnapshot";
 import { HouseholdsListClient } from "@/components/HouseholdsListClient";
-import { StatCard } from "@/components/StatCard";
 import { getCommunityData } from "@/lib/data";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `FireLink — Community · ${zip}`,
     description:
-      "Community snapshot: anonymous ID-level status and readiness for this ZIP — no PII.",
+      "Community status: anonymous household signals by ZIP — no names, phone numbers, or exact addresses.",
   };
 }
 
@@ -39,32 +40,19 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
 
   return (
     <div>
-      <h2 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
-        Community snapshot
+      <h2 className="text-xl font-semibold tracking-tight text-[var(--foreground)] sm:text-2xl">
+        Community status
       </h2>
-      <p className="mb-6 text-sm text-[var(--muted-foreground)]">
-        Snapshot by anonymous ID — no names or addresses.
+      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--muted-foreground)]">
+        Anonymous household status by ZIP — no names, phone numbers, or exact
+        addresses shown.
       </p>
 
-      <section
-        className="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-4"
-        aria-label="Community summary counts"
-      >
-        <StatCard label="With pets" value={stats.pets} tone="neutral" />
-        <StatCard
-          label="Transport needs"
-          value={stats.transportationNeeds}
-          tone="urgent"
-        />
-        <StatCard
-          label="Medical power support"
-          value={stats.medicalPowerNeeds}
-          tone="warning"
-        />
-        <StatCard label="Marked safe" value={stats.markedSafe} tone="safe" />
-      </section>
-
-      <HouseholdsListClient households={households} />
+      <div className="mt-8 space-y-10">
+        <CommunityNeedsNow stats={stats} />
+        <CommunitySnapshot zip={zip} stats={stats} />
+        <HouseholdsListClient households={households} />
+      </div>
     </div>
   );
 }

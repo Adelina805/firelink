@@ -16,7 +16,7 @@ export function DashboardHeader({ zip }: { zip: string }) {
             </Link>
             <span
               className="inline-flex items-center gap-1 rounded-full border border-red-600/35 bg-red-50 px-2 py-0.5 text-[10px] font-semibold leading-none text-red-900 sm:text-[11px] dark:border-red-500/40 dark:bg-red-950/40 dark:text-red-200"
-              aria-label="Live operations feed"
+              aria-label="Active response status"
             >
               Active wildfire response
               <span
@@ -29,7 +29,7 @@ export function DashboardHeader({ zip }: { zip: string }) {
             </span>
           </div>
           <h1 className="mt-1 text-base font-bold leading-tight tracking-tight text-[var(--foreground)] sm:text-lg">
-            Live operations
+            Dashboard
           </h1>
           <div className="mt-1">
             <DashboardLastUpdated />

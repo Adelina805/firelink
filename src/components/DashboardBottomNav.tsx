@@ -13,7 +13,6 @@ type NavItem = {
 function buildNav(zip: string): NavItem[] {
   const base = `/dashboard/${zip}`;
   return [
-    { href: base, label: "Live", shortLabel: "Live" },
     { href: `${base}/needs`, label: "Needs", shortLabel: "Needs" },
     { href: `${base}/fire`, label: "Fire", shortLabel: "Fire" },
     { href: `${base}/households`, label: "Community", shortLabel: "Comm." },
@@ -22,10 +21,6 @@ function buildNav(zip: string): NavItem[] {
 }
 
 function isActive(pathname: string, href: string): boolean {
-  const isZipRoot = /\/dashboard\/[^/]+$/.test(href);
-  if (isZipRoot) {
-    return pathname === href;
-  }
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 

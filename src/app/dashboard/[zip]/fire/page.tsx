@@ -28,10 +28,10 @@ export default async function FireConditionsPage({ params }: Props) {
           Check back when incident and weather feeds are connected.
         </p>
         <Link
-          href={`/dashboard/${zip}`}
+          href={`/dashboard/${zip}/needs`}
           className="mt-6 text-sm font-semibold text-blue-700 underline underline-offset-2 dark:text-blue-400"
         >
-          Back to Live
+          Back to Dashboard
         </Link>
       </div>
     );

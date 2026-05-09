@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "FireLink",
   description:
     "Anonymous ZIP-level wildfire readiness and needs. No names, phone numbers, or exact addresses.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

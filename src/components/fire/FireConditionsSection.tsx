@@ -43,13 +43,13 @@ export function FireConditionsSection({
       id="fire-conditions"
     >
       {showHeading ? (
-        <h2 id={id} className="mb-4 text-lg font-bold tracking-tight text-[var(--foreground)] sm:text-xl">
+        <h2 id={id} className="mb-4 text-lg font-bold tracking-tight text-foreground sm:text-xl">
           Fire Conditions
         </h2>
       ) : null}
 
       {data.latestAlert.timestampIso && data.latestAlert.area ? (
-        <p className="mb-4 text-xs leading-snug text-[var(--muted-foreground)] sm:text-sm">
+        <p className="mb-4 text-xs leading-snug text-(--muted-foreground) sm:text-sm">
           Alert area: {data.latestAlert.area}
         </p>
       ) : null}
@@ -59,8 +59,8 @@ export function FireConditionsSection({
 
         <FireGrowthChart series={data.growthSeries} />
 
-        <div className="lg:grid lg:grid-cols-2 lg:gap-6 lg:items-start">
-          <div className="mb-6 lg:mb-0">
+        <div className="flex flex-col gap-6">
+          <div>
             <AlertTimeline items={data.alertTimeline} />
           </div>
           <div className="flex flex-col gap-6">

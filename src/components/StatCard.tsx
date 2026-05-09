@@ -1,35 +1,36 @@
+import type { SemanticTier } from "@/lib/dashboardSemantic";
+import {
+  statLabelToneClasses,
+  statToneClasses,
+} from "@/lib/semanticStyles";
+
 interface StatCardProps {
   label: string;
   value: string | number;
   subtitle?: string;
-  variant?: "default" | "accent" | "muted";
+  /** Visual emphasis — maps to semantic response colors (not brand amber). */
+  tone?: SemanticTier;
 }
 
 export function StatCard({
   label,
   value,
   subtitle,
-  variant = "default",
+  tone = "neutral",
 }: StatCardProps) {
-  const border =
-    variant === "accent"
-      ? "border-amber-500/60 shadow-[0_0_24px_-8px_rgba(251,191,36,0.5)] dark:border-amber-400/50"
-      : variant === "muted"
-        ? "border-zinc-300 dark:border-zinc-700"
-        : "border-zinc-300 dark:border-zinc-700";
+  const borderWrap = statToneClasses[tone];
+  const labelTone = statLabelToneClasses[tone];
 
   return (
-    <div
-      className={`rounded-2xl border bg-white p-5 backdrop-blur-sm dark:bg-zinc-900/70 ${border}`}
-    >
-      <p className="text-xs font-medium uppercase tracking-wider text-amber-800 dark:text-amber-200">
+    <div className={`rounded-2xl p-5 ${borderWrap}`}>
+      <p className={`text-xs font-semibold uppercase tracking-wider ${labelTone}`}>
         {label}
       </p>
-      <p className="mt-2 text-3xl font-bold tabular-nums text-zinc-900 dark:text-zinc-100">
+      <p className="mt-2 text-3xl font-bold tabular-nums text-[var(--foreground)]">
         {value}
       </p>
       {subtitle ? (
-        <p className="mt-1 text-sm text-zinc-700 dark:text-zinc-300">{subtitle}</p>
+        <p className="mt-1 text-sm text-[var(--muted-foreground)]">{subtitle}</p>
       ) : null}
     </div>
   );

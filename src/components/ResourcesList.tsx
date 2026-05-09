@@ -10,12 +10,12 @@ export function ResourcesList({ resources }: ResourcesListProps) {
       {resources.map((r) => (
         <li
           key={r.id}
-          className="rounded-2xl border border-emerald-700/30 bg-emerald-50 p-5 dark:border-emerald-500/35 dark:bg-emerald-900/25"
+          className="rounded-2xl border border-[var(--card-border)] border-l-[3px] border-l-[#2563EB] bg-[var(--card)] p-5"
         >
-          <h3 className="font-semibold text-emerald-900 dark:text-emerald-100">{r.title}</h3>
-          <p className="mt-2 text-sm text-zinc-800 dark:text-zinc-200">{r.description}</p>
+          <h3 className="font-semibold text-[var(--foreground)]">{r.title}</h3>
+          <p className="mt-2 text-sm text-[var(--muted-foreground)]">{r.description}</p>
           {r.detail ? (
-            <p className="mt-2 text-xs text-zinc-700 dark:text-zinc-300">{r.detail}</p>
+            <p className="mt-2 text-xs text-[var(--muted-foreground)]">{r.detail}</p>
           ) : null}
         </li>
       ))}

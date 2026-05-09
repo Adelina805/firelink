@@ -24,10 +24,10 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
   if (!data) {
     return (
       <div className="flex min-h-[40vh] flex-col items-center justify-center py-12 text-center">
-        <p className="text-zinc-700 dark:text-zinc-300">No data for this ZIP.</p>
+        <p className="text-[var(--muted-foreground)]">No data for this ZIP.</p>
         <Link
           href="/dashboard/92104"
-          className="mt-3 text-sm font-semibold text-amber-700 hover:text-amber-600 dark:text-amber-300 dark:hover:text-amber-200"
+          className="mt-3 text-sm font-semibold text-blue-700 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
         >
           Open demo ZIP
         </Link>
@@ -39,10 +39,10 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
 
   return (
     <div>
-      <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
         Anonymous household status
       </h2>
-      <p className="mb-6 text-sm text-zinc-700 dark:text-zinc-300">
+      <p className="mb-6 text-sm text-[var(--muted-foreground)]">
         Snapshot by anonymous ID — no names or addresses.
       </p>
 
@@ -50,16 +50,18 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
         className="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-4"
         aria-label="Household summary counts"
       >
-        <StatCard label="With pets" value={stats.pets} />
+        <StatCard label="With pets" value={stats.pets} tone="neutral" />
         <StatCard
           label="Transport needs"
           value={stats.transportationNeeds}
+          tone="urgent"
         />
         <StatCard
           label="Medical power support"
           value={stats.medicalPowerNeeds}
+          tone="warning"
         />
-        <StatCard label="Marked safe" value={stats.markedSafe} />
+        <StatCard label="Marked safe" value={stats.markedSafe} tone="safe" />
       </section>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

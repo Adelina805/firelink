@@ -23,7 +23,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="inline-flex h-8 items-center justify-center rounded-full border border-zinc-400 bg-white px-2.5 text-[11px] font-semibold text-zinc-900 shadow-sm transition hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60 dark:border-zinc-500 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+      className="inline-flex h-8 items-center justify-center rounded-full border border-[var(--card-border)] bg-[var(--card)] px-2.5 text-[11px] font-semibold text-[var(--foreground)] shadow-sm transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-amber)]/45 dark:hover:bg-slate-800/90"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
       aria-pressed={isDark}

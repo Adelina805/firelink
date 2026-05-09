@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
-/** Runs in the browser as soon as <head> is parsed — before paint, no React involved */
-const THEME_INIT_SCRIPT = `
-(function () {
-  try {
-    var t = localStorage.getItem("theme");
-    if (t === "dark") document.documentElement.classList.add("dark");
-    if (t === "light") document.documentElement.classList.remove("dark");
-  } catch (e) {}
-})();
-`;
+/** Runs before hydration so `localStorage` theme matches first paint. */
+const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark")document.documentElement.classList.add("dark");if(t==="light")document.documentElement.classList.remove("dark");}catch(e){}})();`;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,10 +33,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
-      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground transition-colors">
+        <Script id="firelink-theme-init" strategy="beforeInteractive">
+          {THEME_INIT_SCRIPT}
+        </Script>
         {children}
       </body>
     </html>

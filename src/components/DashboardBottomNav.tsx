@@ -34,7 +34,7 @@ export function DashboardBottomNav({ zip }: { zip: string }) {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[var(--chrome-border)] bg-[var(--chrome-surface)] pb-[env(safe-area-inset-bottom)] shadow-[0_-1px_0_0_rgba(0,0,0,0.06)] dark:shadow-[0_-1px_0_0_rgba(255,255,255,0.06)]"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[var(--chrome-border)] bg-[var(--chrome-surface)] pb-[env(safe-area-inset-bottom)] shadow-[0_-1px_0_0_rgba(15,23,42,0.06)] dark:shadow-[0_-1px_0_0_rgba(248,250,252,0.06)]"
       aria-label="Dashboard sections"
     >
       <ul className="mx-auto flex max-w-6xl justify-between gap-1 px-2 py-2 sm:px-4">
@@ -47,8 +47,8 @@ export function DashboardBottomNav({ zip }: { zip: string }) {
                 aria-label={label}
                 className={`flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-2 text-[10px] font-semibold uppercase tracking-wide transition sm:min-h-0 sm:text-xs ${
                   active
-                    ? "bg-amber-100 text-amber-900 dark:bg-amber-400/15 dark:text-amber-200"
-                    : "text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+                    ? "bg-[var(--brand-amber)]/12 text-[var(--foreground)] dark:bg-[var(--brand-amber)]/18"
+                    : "text-[var(--muted-foreground)] hover:bg-slate-200/60 hover:text-[var(--foreground)] dark:hover:bg-slate-800/80 dark:hover:text-[var(--foreground)]"
                 }`}
                 aria-current={active ? "page" : undefined}
               >
@@ -56,7 +56,7 @@ export function DashboardBottomNav({ zip }: { zip: string }) {
                 <span className="hidden sm:inline">{label}</span>
                 <span
                   className={`mt-0.5 h-0.5 w-8 rounded-full sm:w-10 ${
-                    active ? "bg-amber-500 dark:bg-amber-300" : "bg-transparent"
+                    active ? "bg-[var(--brand-amber)]" : "bg-transparent"
                   }`}
                   aria-hidden
                 />

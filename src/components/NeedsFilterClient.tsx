@@ -43,7 +43,7 @@ export function NeedsFilterClient({ needs }: NeedsFilterClientProps) {
           placeholder="Search needs…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-500 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-500/30 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-400"
+          className="w-full rounded-xl border border-[var(--card-border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--brand-amber)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--brand-amber)]/25"
         />
       </div>
       <div
@@ -60,10 +60,10 @@ export function NeedsFilterClient({ needs }: NeedsFilterClientProps) {
               role="tab"
               aria-selected={selected}
               onClick={() => setCategory(c.id)}
-              className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+              className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-amber)]/50 ${
                 selected
-                  ? "border-amber-600 bg-amber-100 text-amber-900 dark:border-amber-400/70 dark:bg-amber-400/15 dark:text-amber-100"
-                  : "border-zinc-300 bg-white text-zinc-700 hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+                  ? "border-[var(--brand-amber)]/70 bg-[var(--brand-amber)]/12 text-[var(--foreground)] dark:bg-[var(--brand-amber)]/18"
+                  : "border-[var(--card-border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:border-slate-400 hover:text-[var(--foreground)] dark:hover:border-slate-500"
               }`}
             >
               {c.label}
@@ -72,7 +72,7 @@ export function NeedsFilterClient({ needs }: NeedsFilterClientProps) {
         })}
       </div>
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-zinc-300 bg-white p-6 text-center text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-300">
+        <p className="rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-6 text-center text-sm text-[var(--muted-foreground)]">
           No needs match this filter.
         </p>
       ) : (

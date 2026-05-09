@@ -1,3 +1,5 @@
+import { semanticForHouseholdStatus } from "@/lib/dashboardSemantic";
+import { statusPillClasses } from "@/lib/semanticStyles";
 import type { AnonymousHousehold } from "@/lib/types";
 
 interface HouseholdCardProps {
@@ -6,17 +8,32 @@ interface HouseholdCardProps {
 
 export function HouseholdCard({ household }: HouseholdCardProps) {
   const pct = Math.min(100, Math.max(0, household.prep_score));
+  const tier = semanticForHouseholdStatus(household.status);
+  const pillClass = statusPillClasses[tier];
+  const barClass =
+    pct < 40
+      ? "bg-[#DC2626]"
+      : pct < 70
+        ? "bg-[#F97316]"
+        : "bg-[#16A34A]";
+  const prepLabel = pct < 40 ? "Critical" : pct < 70 ? "In progress" : "Strong";
 
   return (
-    <article className="flex flex-col gap-4 rounded-2xl border border-zinc-300 bg-white p-5 backdrop-blur-md dark:border-zinc-700 dark:bg-zinc-900/70">
-      <header className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="font-mono text-lg font-semibold text-amber-800 dark:text-amber-200">
+    <article className="flex flex-col gap-4 rounded-2xl border border-[var(--card-border)] bg-[var(--card)] p-5">
+      <header className="flex flex-wrap items-center justify-between gap-2">
+        <span className="font-mono text-lg font-semibold text-[var(--foreground)]">
           Household {household.anonymous_id}
         </span>
-        <span className="rounded-full border border-emerald-600/40 bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-900 dark:border-emerald-500/40 dark:bg-emerald-900/30 dark:text-emerald-200">
+        <span className="rounded-full border border-[var(--card-border)] bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-[var(--foreground)] dark:bg-slate-800/80 dark:text-[var(--foreground)]">
           ZIP {household.zip_code}
         </span>
       </header>
+      <p className="text-xs text-[var(--muted-foreground)]">
+        Status:{" "}
+        <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${pillClass}`}>
+          {household.status}
+        </span>
+      </p>
       <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
         <Detail label="Pets" value={household.has_pets ? "Yes" : "No"} />
         <Detail
@@ -31,25 +48,23 @@ export function HouseholdCard({ household }: HouseholdCardProps) {
           label="Can help others"
           value={household.can_volunteer ? "Yes" : "No"}
         />
-        <Detail
-          label="Status"
-          value={household.status}
-          className="col-span-2"
-        />
       </dl>
       <div>
-        <div className="mb-1 flex justify-between text-xs text-zinc-700 dark:text-zinc-300">
+        <div className="mb-1 flex justify-between text-xs text-[var(--muted-foreground)]">
           <span>Preparedness</span>
-          <span>{pct}%</span>
+          <span>
+            {pct}% · <span className="font-medium text-[var(--foreground)]">{prepLabel}</span>
+          </span>
         </div>
-        <div className="h-2 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-700">
+        <div className="h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
           <div
-            className="h-full rounded-full bg-linear-to-r from-amber-600 to-orange-400 transition-[width] duration-500"
+            className={`h-full rounded-full transition-[width] duration-500 ${barClass}`}
             style={{ width: `${pct}%` }}
             role="progressbar"
             aria-valuenow={pct}
             aria-valuemin={0}
             aria-valuemax={100}
+            aria-valuetext={`${pct}% prepared, ${prepLabel}`}
           />
         </div>
       </div>
@@ -68,8 +83,8 @@ function Detail({
 }) {
   return (
     <div className={className}>
-      <dt className="text-zinc-700 dark:text-zinc-300">{label}</dt>
-      <dd className="font-medium text-zinc-900 dark:text-zinc-100">{value}</dd>
+      <dt className="text-[var(--muted-foreground)]">{label}</dt>
+      <dd className="font-medium text-[var(--foreground)]">{value}</dd>
     </div>
   );
 }

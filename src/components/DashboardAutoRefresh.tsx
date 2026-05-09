@@ -13,6 +13,7 @@ export function DashboardAutoRefresh() {
   useEffect(() => {
     const id = window.setInterval(() => {
       router.refresh();
+      window.dispatchEvent(new Event("firelink:dashboard-refresh"));
     }, 5000);
     return () => window.clearInterval(id);
   }, [router]);

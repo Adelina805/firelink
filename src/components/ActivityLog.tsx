@@ -1,5 +1,7 @@
 "use client";
 
+import { activityTypeLabel, semanticForActivityMessage } from "@/lib/dashboardSemantic";
+import { activityDotClasses, activityPillClasses } from "@/lib/semanticStyles";
 import type { ActivityItem } from "@/lib/types";
 
 interface ActivityLogProps {
@@ -33,22 +35,41 @@ export function ActivityLog({
 
   return (
     <ul className="space-y-3" aria-live="polite">
-      {sorted.map((ev) => (
-        <li
-          key={ev.id}
-          className="flex flex-col gap-1.5 rounded-xl border border-zinc-300 bg-white px-4 py-3 sm:flex-row sm:items-start sm:justify-between dark:border-zinc-700 dark:bg-zinc-900/70"
-        >
-          <span className="max-w-3xl leading-snug text-zinc-900 dark:text-zinc-100">
-            {ev.message}
-          </span>
-          <time
-            className="shrink-0 text-xs text-zinc-600 sm:text-right dark:text-zinc-400"
-            dateTime={ev.timestamp}
+      {sorted.map((ev) => {
+        const tier = semanticForActivityMessage(ev.message);
+        const pill = activityPillClasses[tier];
+        const dot = activityDotClasses[tier];
+        const typeLabel = activityTypeLabel(ev.message);
+        return (
+          <li
+            key={ev.id}
+            className="flex flex-col gap-2 rounded-xl border border-[var(--card-border)] bg-[var(--card)] px-4 py-3 sm:flex-row sm:items-start sm:justify-between"
           >
-            {formatTime(ev.timestamp)}
-          </time>
-        </li>
-      ))}
+            <div className="flex min-w-0 flex-1 gap-3">
+              <span
+                className={`mt-2 size-2.5 shrink-0 rounded-full ${dot}`}
+                aria-hidden
+              />
+              <div className="min-w-0">
+                <div className="mb-1 flex flex-wrap items-center gap-2">
+                  <span
+                    className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${pill}`}
+                  >
+                    {typeLabel}
+                  </span>
+                </div>
+                <p className="max-w-3xl leading-snug text-[var(--foreground)]">{ev.message}</p>
+              </div>
+            </div>
+            <time
+              className="shrink-0 text-xs text-[var(--muted-foreground)] sm:pt-2 sm:text-right"
+              dateTime={ev.timestamp}
+            >
+              {formatTime(ev.timestamp)}
+            </time>
+          </li>
+        );
+      })}
     </ul>
   );
 }

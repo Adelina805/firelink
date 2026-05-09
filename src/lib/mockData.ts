@@ -99,6 +99,11 @@ export const mockCommunity92104: CommunityDashboardData = {
       message: "Household D33Q requested medical device power support",
       timestamp: "2026-05-09T16:30:00.000Z",
     },
+    {
+      id: "e6",
+      message: "Household C19B volunteered for neighborhood transport",
+      timestamp: "2026-05-09T15:10:00.000Z",
+    },
   ],
   resources: [
     {

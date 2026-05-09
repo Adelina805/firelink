@@ -1,4 +1,5 @@
 import { HomeFeed } from "@/components/HomeFeed";
+import { NeedsNowSection } from "@/components/NeedsNowSection";
 import { StatCard } from "@/components/StatCard";
 import { getCommunityData } from "@/lib/data";
 import Link from "next/link";
@@ -24,12 +25,12 @@ export default async function DashboardHomePage({ params }: Props) {
   if (!data) {
     return (
       <div className="flex min-h-[50vh] flex-col items-center justify-center py-12 text-center">
-        <h2 className="text-xl font-bold text-zinc-900 dark:text-white">No demo data for this ZIP</h2>
-        <p className="mt-3 max-w-md text-zinc-700 dark:text-zinc-300">
+        <h2 className="text-xl font-bold text-[var(--foreground)]">No demo data for this ZIP</h2>
+        <p className="mt-3 max-w-md text-[var(--muted-foreground)]">
           Try the sample community at{" "}
           <Link
             href="/dashboard/92104"
-            className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-600 dark:text-amber-300 dark:hover:text-amber-200"
+            className="font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
           >
             /dashboard/92104
           </Link>
@@ -39,38 +40,39 @@ export default async function DashboardHomePage({ params }: Props) {
     );
   }
 
-  const { stats } = data;
+  const { stats, needs } = data;
+  const shelterCount =
+    needs.find((n) => n.label.trim().toLowerCase() === "shelter info")?.count ?? 0;
 
   return (
     <div>
-      <p className="mb-6 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
-        <span className="text-zinc-600 dark:text-zinc-400">Updates:</span> Auto-refresh every 5s
-        (demo placeholder).
+      <p className="mb-5 text-xs font-medium uppercase tracking-wider text-[var(--muted-foreground)]">
+        Updates: auto-refresh every 5s (demo)
       </p>
+
+      <NeedsNowSection zip={zip} needs={needs} />
 
       <section className="mb-8" aria-labelledby="home-metrics-heading">
         <h2 id="home-metrics-heading" className="sr-only">
           Key metrics
         </h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-          <StatCard
-            label="Registered households"
-            value={stats.registeredHouseholds}
-            variant="accent"
-          />
-          <StatCard label="Requested help" value={stats.requestedHelp} />
-          <StatCard label="Volunteers available" value={stats.volunteers} />
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <StatCard label="Registered households" value={stats.registeredHouseholds} tone="neutral" />
+          <StatCard label="Requested help" value={stats.requestedHelp} tone="urgent" />
+          <StatCard label="Volunteers available" value={stats.volunteers} tone="safe" />
+          <StatCard label="Marked safe" value={stats.markedSafe} tone="safe" />
+          <StatCard label="Medical power support" value={stats.medicalPowerNeeds} tone="warning" />
+          <StatCard label="Shelter info" value={shelterCount} tone="info" />
         </div>
       </section>
 
-      <div className="mb-8 rounded-xl border border-amber-400/35 bg-amber-100/80 p-4 text-sm text-amber-900 dark:border-amber-500/25 dark:bg-amber-950/30 dark:text-amber-50/90">
-        <strong className="text-amber-900 dark:text-amber-100">Privacy:</strong> Aggregate counts
-        and anonymous household IDs only — never street addresses or contact
-        info. Medical concerns are summarized as &quot;medical device power
-        support&quot; where applicable.
+      <div className="mb-8 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-4 text-sm text-[var(--muted-foreground)]">
+        <strong className="font-semibold text-[var(--foreground)]">Privacy:</strong> Aggregate counts
+        and anonymous household IDs only — never street addresses or contact info. Medical concerns are
+        summarized as &quot;medical device power support&quot; where applicable.
       </div>
 
-      <HomeFeed zip={zip} events={data.events} needs={data.needs} />
+      <HomeFeed events={data.events} />
     </div>
   );
 }

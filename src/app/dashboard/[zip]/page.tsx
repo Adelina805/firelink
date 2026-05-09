@@ -16,5 +16,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DashboardZipRootPage({ params }: Props) {
   const { zip } = await params;
-  redirect(`/dashboard/${zip}/needs`);
+  redirect(`/dashboard/${zip}/fire`);
 }

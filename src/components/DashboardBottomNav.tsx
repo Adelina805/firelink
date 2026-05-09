@@ -13,8 +13,8 @@ type NavItem = {
 function buildNav(zip: string): NavItem[] {
   const base = `/dashboard/${zip}`;
   return [
-    { href: `${base}/needs`, label: "Needs", shortLabel: "Needs" },
     { href: `${base}/fire`, label: "Fire", shortLabel: "Fire" },
+    { href: `${base}/needs`, label: "Needs", shortLabel: "Needs" },
     { href: `${base}/households`, label: "Community", shortLabel: "Comm." },
     { href: `${base}/resources`, label: "Resources", shortLabel: "Res." },
   ];

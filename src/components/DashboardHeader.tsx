@@ -12,12 +12,22 @@ export function DashboardHeader({ zip }: { zip: string }) {
           >
             FireLink
           </Link>
-          <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-1">
-            <h1 className="truncate text-base font-bold tracking-tight text-zinc-900 sm:text-lg dark:text-zinc-100">
+          <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+            <h1 className="truncate text-base font-bold leading-tight tracking-tight text-zinc-900 sm:text-lg dark:text-zinc-100">
               Community dashboard
             </h1>
-            <span className="rounded-full border border-emerald-600/40 bg-emerald-100 px-2 py-0.5 text-[10px] font-medium text-emerald-900 sm:text-xs dark:border-emerald-500/40 dark:bg-emerald-900/30 dark:text-emerald-200">
-              Live (demo)
+            <span
+              className="inline-flex items-center gap-1 rounded-full border border-emerald-600/40 bg-emerald-100 px-2 py-0.5 text-[10px] font-medium leading-none text-emerald-900 sm:text-xs dark:border-emerald-500/40 dark:bg-emerald-900/30 dark:text-emerald-200"
+              aria-label="Live demo"
+            >
+              live
+              <span
+                className="relative inline-flex size-2.5 shrink-0 items-center justify-center"
+                aria-hidden
+              >
+                <span className="absolute inset-0 rounded-full border border-current animate-live-dot" />
+                <span className="absolute inset-[3px] rounded-full bg-current animate-live-dot" />
+              </span>
             </span>
           </div>
           <p className="mt-0.5 truncate text-xs text-zinc-700 dark:text-zinc-300">

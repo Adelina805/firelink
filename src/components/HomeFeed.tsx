@@ -1,6 +1,7 @@
 "use client";
 
 import { ActivityLog } from "@/components/ActivityLog";
+import { FilterMenu } from "@/components/FilterMenu";
 import type { ActivityItem } from "@/lib/types";
 import { type FeedFilterId, filterActivityByFeed } from "@/lib/dashboardFilters";
 import { useMemo, useState } from "react";
@@ -11,6 +12,11 @@ const FEED_CHIPS: { id: FeedFilterId; label: string }[] = [
   { id: "new", label: "New" },
   { id: "volunteers", label: "Volunteers" },
   { id: "safe", label: "Safe" },
+];
+
+const SORT_OPTIONS = [
+  { id: "newest" as const, label: "Newest" },
+  { id: "oldest" as const, label: "Oldest" },
 ];
 
 interface HomeFeedProps {
@@ -38,57 +44,23 @@ export function HomeFeed({ events }: HomeFeedProps) {
         <p className="mb-3 text-xs text-[var(--muted-foreground)]">
           Recent SMS and status events — color tags mirror response priority.
         </p>
-        <div
-          className="mb-4 flex flex-wrap gap-2"
-          role="tablist"
-          aria-label="Filter activity"
-        >
-          {FEED_CHIPS.map((chip) => {
-            const selected = filter === chip.id;
-            return (
-              <button
-                key={chip.id}
-                type="button"
-                role="tab"
-                aria-selected={selected}
-                onClick={() => setFilter(chip.id)}
-                className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-amber)]/50 ${
-                  selected
-                    ? "border-[var(--brand-amber)]/70 bg-[var(--brand-amber)]/15 text-[var(--foreground)] dark:bg-[var(--brand-amber)]/20"
-                    : "border-[var(--card-border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:border-slate-400 hover:text-[var(--foreground)] dark:hover:border-slate-500"
-                }`}
-              >
-                {chip.label}
-              </button>
-            );
-          })}
-        </div>
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          <span className="w-full text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-foreground)] sm:w-auto">
-            Sort
-          </span>
-          <button
-            type="button"
-            onClick={() => setActivitySort("newest")}
-            className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-amber)]/50 ${
-              activitySort === "newest"
-                ? "border-slate-500 bg-slate-200/80 text-[var(--foreground)] dark:border-slate-500 dark:bg-slate-800 dark:text-[var(--foreground)]"
-                : "border-[var(--card-border)] bg-transparent text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
-            }`}
-          >
-            Newest
-          </button>
-          <button
-            type="button"
-            onClick={() => setActivitySort("oldest")}
-            className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-amber)]/50 ${
-              activitySort === "oldest"
-                ? "border-slate-500 bg-slate-200/80 text-[var(--foreground)] dark:border-slate-500 dark:bg-slate-800 dark:text-[var(--foreground)]"
-                : "border-[var(--card-border)] bg-transparent text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
-            }`}
-          >
-            Oldest
-          </button>
+          <FilterMenu
+            options={FEED_CHIPS}
+            value={filter}
+            onChange={setFilter}
+            menuLabel="Filter activity"
+            buttonLabel="Filter"
+            align="left"
+          />
+          <FilterMenu
+            options={SORT_OPTIONS}
+            value={activitySort}
+            onChange={setActivitySort}
+            menuLabel="Sort activity"
+            buttonLabel="Sort"
+            align="left"
+          />
         </div>
         <ActivityLog events={filteredEvents} sortOrder={activitySort} />
       </section>

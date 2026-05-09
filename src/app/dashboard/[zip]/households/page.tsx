@@ -1,4 +1,4 @@
-import { HouseholdCard } from "@/components/HouseholdCard";
+import { HouseholdsListClient } from "@/components/HouseholdsListClient";
 import { StatCard } from "@/components/StatCard";
 import { getCommunityData } from "@/lib/data";
 import Link from "next/link";
@@ -64,11 +64,7 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
         <StatCard label="Marked safe" value={stats.markedSafe} tone="safe" />
       </section>
 
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {households.map((h) => (
-          <HouseholdCard key={h.anonymous_id} household={h} />
-        ))}
-      </div>
+      <HouseholdsListClient households={households} />
     </div>
   );
 }

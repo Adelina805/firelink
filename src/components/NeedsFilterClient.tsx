@@ -1,5 +1,6 @@
 "use client";
 
+import { FilterMenu } from "@/components/FilterMenu";
 import { NeedsTable } from "@/components/NeedsTable";
 import { filterNeedsByCategory } from "@/lib/dashboardFilters";
 import type { NeedItem } from "@/lib/types";
@@ -46,30 +47,14 @@ export function NeedsFilterClient({ needs }: NeedsFilterClientProps) {
           className="w-full rounded-xl border border-[var(--card-border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--brand-amber)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--brand-amber)]/25"
         />
       </div>
-      <div
-        className="mb-5 flex flex-wrap gap-2"
-        role="tablist"
-        aria-label="Filter needs by category"
-      >
-        {CATEGORIES.map((c) => {
-          const selected = category === c.id;
-          return (
-            <button
-              key={c.id}
-              type="button"
-              role="tab"
-              aria-selected={selected}
-              onClick={() => setCategory(c.id)}
-              className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-amber)]/50 ${
-                selected
-                  ? "border-[var(--brand-amber)]/70 bg-[var(--brand-amber)]/12 text-[var(--foreground)] dark:bg-[var(--brand-amber)]/18"
-                  : "border-[var(--card-border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:border-slate-400 hover:text-[var(--foreground)] dark:hover:border-slate-500"
-              }`}
-            >
-              {c.label}
-            </button>
-          );
-        })}
+      <div className="mb-5">
+        <FilterMenu
+          options={CATEGORIES}
+          value={category}
+          onChange={setCategory}
+          menuLabel="Filter needs by category"
+          buttonLabel="Filter"
+        />
       </div>
       {filtered.length === 0 ? (
         <p className="rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-6 text-center text-sm text-[var(--muted-foreground)]">

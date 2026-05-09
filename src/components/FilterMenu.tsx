@@ -15,6 +15,8 @@ interface FilterMenuProps<T extends string> {
   menuLabel: string;
   /** Accessible verb describing the action (e.g. "Filter", "Sort"). Defaults to "Filter". */
   buttonLabel?: string;
+  /** Optional additional classes applied to the button element. */
+  buttonClassName?: string;
   /** Optional alignment of the dropdown panel. Defaults to "right". */
   align?: "left" | "right";
 }
@@ -25,6 +27,7 @@ export function FilterMenu<T extends string>({
   onChange,
   menuLabel,
   buttonLabel = "Filter",
+  buttonClassName,
   align = "right",
 }: FilterMenuProps<T>) {
   const [open, setOpen] = useState(false);
@@ -66,7 +69,7 @@ export function FilterMenu<T extends string>({
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={`${buttonLabel}. Current: ${activeLabel}`}
-        className="inline-flex items-center gap-2 rounded-full border border-[var(--card-border)] bg-[var(--card)] px-3 py-1.5 text-xs font-semibold text-[var(--foreground)] transition hover:border-slate-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-amber)]/50 dark:hover:border-slate-500"
+        className={`inline-flex items-center gap-2 rounded-full border border-[var(--card-border)] bg-[var(--card)] px-3 py-1.5 text-xs font-semibold text-[var(--foreground)] transition hover:border-slate-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-amber)]/50 dark:hover:border-slate-500 ${buttonClassName ?? ""}`}
       >
         <FilterIcon className="h-3.5 w-3.5" />
         {buttonLabel}

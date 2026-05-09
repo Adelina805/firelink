@@ -34,27 +34,30 @@ export function NeedsFilterClient({ needs }: NeedsFilterClientProps) {
 
   return (
     <div>
-      <div className="mb-4">
-        <label htmlFor="needs-search" className="sr-only">
-          Search needs
-        </label>
-        <input
-          id="needs-search"
-          type="search"
-          placeholder="Search needs…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-xl border border-[var(--card-border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--brand-amber)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--brand-amber)]/25"
-        />
-      </div>
-      <div className="mb-5">
-        <FilterMenu
-          options={CATEGORIES}
-          value={category}
-          onChange={setCategory}
-          menuLabel="Filter needs by category"
-          buttonLabel="Filter"
-        />
+      <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="flex-1">
+          <label htmlFor="needs-search" className="sr-only">
+            Search needs
+          </label>
+          <input
+            id="needs-search"
+            type="search"
+            placeholder="Search needs…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full rounded-xl border border-[var(--card-border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--brand-amber)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--brand-amber)]/25"
+          />
+        </div>
+        <div className="shrink-0">
+          <FilterMenu
+            options={CATEGORIES}
+            value={category}
+            onChange={setCategory}
+            menuLabel="Filter needs by category"
+            buttonLabel="Filter"
+            buttonClassName="h-[46px] rounded-xl px-4 py-3 text-sm font-semibold"
+          />
+        </div>
       </div>
       {filtered.length === 0 ? (
         <p className="rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-6 text-center text-sm text-[var(--muted-foreground)]">

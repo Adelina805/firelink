@@ -13,7 +13,7 @@ export function DashboardHeader({ zip }: { zip: string }) {
             FireLink
           </Link>
           <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1">
-            <h1 className="truncate text-base font-bold leading-tight tracking-tight text-zinc-900 sm:text-lg dark:text-zinc-100">
+            <h1 className="text-base font-bold leading-tight tracking-tight text-zinc-900 sm:text-lg dark:text-zinc-100">
               Community dashboard
             </h1>
             <span
@@ -30,13 +30,11 @@ export function DashboardHeader({ zip }: { zip: string }) {
               </span>
             </span>
           </div>
-          <p className="mt-0.5 truncate text-xs text-zinc-700 dark:text-zinc-300">
+          <p className="mt-0.5 text-sm leading-snug break-words text-zinc-700 dark:text-zinc-300">
             ZIP{" "}
             <span className="font-mono text-amber-800 dark:text-amber-200">{zip}</span>
             <span className="mx-1.5 text-zinc-500 dark:text-zinc-400">·</span>
-            <span className="hidden md:inline">
-              Anonymous counts only — no PII.
-            </span>
+            <span>Anonymous counts only — no personally identifiable information.</span>
           </p>
         </div>
         <div className="shrink-0">

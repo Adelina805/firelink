@@ -4,7 +4,7 @@ Wildfire preparedness via SMS plus an **anonymous, public** community dashboard 
 
 ## Dashboard
 
-Demo route: **`/dashboard/92104`**
+Demo route: **`/dashboard/91001`**
 
 Run locally:
 
@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-Then open [http://localhost:3000/dashboard/92104](http://localhost:3000/dashboard/92104).
+Then open [http://localhost:3000/dashboard/91001](http://localhost:3000/dashboard/91001).
 
 ## Stack
 

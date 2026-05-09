@@ -1,8 +1,8 @@
 import type { FireConditionsViewModel } from "@/lib/fireConditionsAdapter";
 import { lastReportedGrowthDelta } from "@/lib/fireConditionsAdapter";
+import { LiveEatonMap } from "@/components/LiveEatonMap";
 import { AlertTimeline } from "./AlertTimeline";
 import { FireGrowthChart } from "./FireGrowthChart";
-import { LiveFireMap } from "./LiveFireMap";
 import { FireStatusCards } from "./FireStatusCards";
 import { FirePastUpdates } from "./FirePastUpdates";
 import { LatestFireUpdate } from "./LatestFireUpdate";
@@ -56,7 +56,7 @@ export function FireConditionsSection({
       ) : null}
 
       <div className="space-y-6">
-        <LiveFireMap />
+        <LiveEatonMap />
 
         <FireStatusCards data={data} />
 

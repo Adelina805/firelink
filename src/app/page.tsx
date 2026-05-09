@@ -18,10 +18,10 @@ export default function Home() {
         needs only.
       </p>
       <Link
-        href="/dashboard/92104"
+        href="/dashboard/91001"
         className="mt-8 inline-flex rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-stone-950 shadow-lg shadow-amber-900/30 transition hover:bg-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70"
       >
-        Open demo dashboard (92104)
+        Open demo dashboard (91001)
       </Link>
     </div>
   );

@@ -26,7 +26,7 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
       <div className="flex min-h-[40vh] flex-col items-center justify-center py-12 text-center">
         <p className="text-[var(--muted-foreground)]">No data for this ZIP.</p>
         <Link
-          href="/dashboard/92104"
+          href="/dashboard/91001"
           className="mt-3 text-sm font-semibold text-blue-700 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
         >
           Open demo ZIP

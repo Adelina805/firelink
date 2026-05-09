@@ -1,8 +1,8 @@
 import type { CommunityDashboardData } from "./types";
 
-/** Demo dataset for ZIP 92104 — no PII */
-export const mockCommunity92104: CommunityDashboardData = {
-  zip: "92104",
+/** Demo dataset for ZIP 91001 — no PII */
+export const mockCommunity91001: CommunityDashboardData = {
+  zip: "91001",
   stats: {
     registeredHouseholds: 25,
     pets: 9,
@@ -16,7 +16,7 @@ export const mockCommunity92104: CommunityDashboardData = {
   households: [
     {
       anonymous_id: "A7F2",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: true,
       has_transport: false,
       medical_needs: false,
@@ -26,7 +26,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "C19B",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: true,
       medical_needs: false,
@@ -36,7 +36,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "B92K",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: true,
       has_transport: true,
       medical_needs: false,
@@ -46,7 +46,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "E51M",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: true,
       has_transport: false,
       medical_needs: false,
@@ -56,7 +56,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "D33Q",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: true,
@@ -66,7 +66,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "F88R",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: false,
@@ -76,7 +76,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "G02P",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: true,
       has_transport: false,
       medical_needs: false,
@@ -86,7 +86,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "H44T",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: true,
       medical_needs: false,
@@ -96,7 +96,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "J19W",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: true,
@@ -106,7 +106,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "K77S",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: true,
       has_transport: true,
       medical_needs: false,
@@ -116,7 +116,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "L03V",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: false,
@@ -126,7 +126,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "M56X",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: true,
       has_transport: false,
       medical_needs: false,
@@ -136,7 +136,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "N91Y",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: true,
       medical_needs: false,
@@ -146,7 +146,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "P24Z",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: false,
@@ -156,7 +156,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "Q67A",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: true,
       has_transport: true,
       medical_needs: false,
@@ -166,7 +166,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "R08B",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: false,
@@ -176,7 +176,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "S33C",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: true,
       has_transport: false,
       medical_needs: true,
@@ -186,7 +186,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "T49D",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: true,
       medical_needs: false,
@@ -196,7 +196,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "U15E",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: false,
@@ -206,7 +206,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "V72F",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: true,
       has_transport: false,
       medical_needs: false,
@@ -216,7 +216,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "W28G",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: false,
@@ -226,7 +226,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "Y04J",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: true,
@@ -236,7 +236,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "Z12K",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: true,
       medical_needs: false,
@@ -246,7 +246,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "K8LM",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: true,
       medical_needs: false,
@@ -256,7 +256,7 @@ export const mockCommunity92104: CommunityDashboardData = {
     },
     {
       anonymous_id: "R50N",
-      zip_code: "92104",
+      zip_code: "91001",
       has_pets: false,
       has_transport: false,
       medical_needs: false,
@@ -626,10 +626,10 @@ export const mockCommunity92105: CommunityDashboardData = {
       timestamp: "2026-05-08T20:00:00.000Z",
     },
   ],
-  resources: mockCommunity92104.resources,
+  resources: mockCommunity91001.resources,
 };
 
 export const mockCommunitiesByZip: Record<string, CommunityDashboardData> = {
-  "92104": mockCommunity92104,
+  "91001": mockCommunity91001,
   "92105": mockCommunity92105,
 };

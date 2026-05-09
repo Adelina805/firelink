@@ -97,9 +97,10 @@ function tierAriaLabel(tier: ReturnType<typeof semanticForNeedLabel>): string {
 interface NeedsNowSectionProps {
   zip: string;
   needs: NeedItem[];
+  showQueueLink?: boolean;
 }
 
-export function NeedsNowSection({ zip, needs }: NeedsNowSectionProps) {
+export function NeedsNowSection({ zip, needs, showQueueLink = true }: NeedsNowSectionProps) {
   const rows = buildNeedsNowRows(needs);
 
   return (
@@ -119,12 +120,14 @@ export function NeedsNowSection({ zip, needs }: NeedsNowSectionProps) {
             Highest-impact requests for this ZIP — scan counts first, then open the full queue.
           </p>
         </div>
-        <Link
-          href={`/dashboard/${zip}/needs`}
-          className="shrink-0 rounded-lg border border-blue-600/40 bg-blue-50 px-3 py-2 text-xs font-semibold text-blue-900 underline-offset-2 hover:bg-blue-100 hover:underline dark:border-blue-500/40 dark:bg-blue-950/40 dark:text-blue-100 dark:hover:bg-blue-950/70"
-        >
-          Full needs queue
-        </Link>
+        {showQueueLink ? (
+          <Link
+            href={`/dashboard/${zip}/needs`}
+            className="shrink-0 rounded-lg border border-blue-600/40 bg-blue-50 px-3 py-2 text-xs font-semibold text-blue-900 underline-offset-2 hover:bg-blue-100 hover:underline dark:border-blue-500/40 dark:bg-blue-950/40 dark:text-blue-100 dark:hover:bg-blue-950/70"
+          >
+            Full needs queue
+          </Link>
+        ) : null}
       </div>
       <ul className="space-y-2">
         {rows.map((n) => {

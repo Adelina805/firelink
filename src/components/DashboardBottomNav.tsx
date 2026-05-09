@@ -15,6 +15,7 @@ function buildNav(zip: string): NavItem[] {
   return [
     { href: base, label: "Live", shortLabel: "Live" },
     { href: `${base}/needs`, label: "Needs", shortLabel: "Needs" },
+    { href: `${base}/fire`, label: "Fire", shortLabel: "Fire" },
     { href: `${base}/households`, label: "Community", shortLabel: "Comm." },
     { href: `${base}/resources`, label: "Resources", shortLabel: "Res." },
   ];

@@ -1,6 +1,7 @@
+import { FireConditionsSection } from "@/components/fire/FireConditionsSection";
 import { HomeFeed } from "@/components/HomeFeed";
-import { NeedsNowSection } from "@/components/NeedsNowSection";
 import { StatCard } from "@/components/StatCard";
+import { getMockFireConditionsViewModel } from "@/lib/fireConditionsAdapter";
 import { getCommunityData } from "@/lib/data";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -43,6 +44,7 @@ export default async function DashboardHomePage({ params }: Props) {
   const { stats, needs } = data;
   const shelterCount =
     needs.find((n) => n.label.trim().toLowerCase() === "shelter info")?.count ?? 0;
+  const fireData = getMockFireConditionsViewModel();
 
   return (
     <div>
@@ -50,7 +52,7 @@ export default async function DashboardHomePage({ params }: Props) {
         Updates: auto-refresh every 5s (demo)
       </p>
 
-      <NeedsNowSection zip={zip} needs={needs} />
+      {fireData ? <FireConditionsSection data={fireData} /> : null}
 
       <section className="mb-8" aria-labelledby="home-metrics-heading">
         <h2 id="home-metrics-heading" className="sr-only">

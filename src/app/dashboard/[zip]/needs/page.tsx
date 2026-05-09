@@ -1,3 +1,4 @@
+import { NeedsNowSection } from "@/components/NeedsNowSection";
 import { NeedsFilterClient } from "@/components/NeedsFilterClient";
 import { getCommunityData } from "@/lib/data";
 import Link from "next/link";
@@ -35,7 +36,9 @@ export default async function DashboardNeedsPage({ params }: Props) {
 
   return (
     <div>
-      <h2 className="mb-2 text-lg font-semibold text-[var(--foreground)]">Current needs</h2>
+      <NeedsNowSection zip={zip} needs={data.needs} showQueueLink={false} />
+
+      <h2 className="mb-2 text-lg font-semibold text-[var(--foreground)]">Needs queue</h2>
       <p className="mb-6 text-sm text-[var(--muted-foreground)]">
         Broad categories and counts — filter by type or search labels.
       </p>

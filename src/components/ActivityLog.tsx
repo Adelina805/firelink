@@ -36,11 +36,13 @@ export function ActivityLog({
       {sorted.map((ev) => (
         <li
           key={ev.id}
-          className="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+          className="flex flex-col gap-1.5 rounded-xl border border-zinc-300 bg-white px-4 py-3 sm:flex-row sm:items-start sm:justify-between dark:border-zinc-700 dark:bg-zinc-900/70"
         >
-          <span className="text-white/90">{ev.message}</span>
+          <span className="max-w-3xl leading-snug text-zinc-900 dark:text-zinc-100">
+            {ev.message}
+          </span>
           <time
-            className="shrink-0 text-xs text-white/45"
+            className="shrink-0 text-xs text-zinc-600 sm:text-right dark:text-zinc-400"
             dateTime={ev.timestamp}
           >
             {formatTime(ev.timestamp)}

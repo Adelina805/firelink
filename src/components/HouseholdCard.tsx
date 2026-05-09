@@ -8,12 +8,12 @@ export function HouseholdCard({ household }: HouseholdCardProps) {
   const pct = Math.min(100, Math.max(0, household.prep_score));
 
   return (
-    <article className="flex flex-col gap-4 rounded-2xl border border-white/12 bg-black/35 p-5 backdrop-blur-md">
+    <article className="flex flex-col gap-4 rounded-2xl border border-zinc-300 bg-white p-5 backdrop-blur-md dark:border-zinc-700 dark:bg-zinc-900/70">
       <header className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="font-mono text-lg font-semibold text-amber-100">
+        <span className="font-mono text-lg font-semibold text-amber-800 dark:text-amber-200">
           Household {household.anonymous_id}
         </span>
-        <span className="rounded-full border border-emerald-500/30 bg-emerald-950/40 px-2.5 py-0.5 text-xs font-medium text-emerald-200">
+        <span className="rounded-full border border-emerald-600/40 bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-900 dark:border-emerald-500/40 dark:bg-emerald-900/30 dark:text-emerald-200">
           ZIP {household.zip_code}
         </span>
       </header>
@@ -38,11 +38,11 @@ export function HouseholdCard({ household }: HouseholdCardProps) {
         />
       </dl>
       <div>
-        <div className="mb-1 flex justify-between text-xs text-white/60">
+        <div className="mb-1 flex justify-between text-xs text-zinc-700 dark:text-zinc-300">
           <span>Preparedness</span>
           <span>{pct}%</span>
         </div>
-        <div className="h-2 overflow-hidden rounded-full bg-white/10">
+        <div className="h-2 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-700">
           <div
             className="h-full rounded-full bg-linear-to-r from-amber-600 to-orange-400 transition-[width] duration-500"
             style={{ width: `${pct}%` }}
@@ -68,8 +68,8 @@ function Detail({
 }) {
   return (
     <div className={className}>
-      <dt className="text-white/50">{label}</dt>
-      <dd className="font-medium text-white">{value}</dd>
+      <dt className="text-zinc-700 dark:text-zinc-300">{label}</dt>
+      <dd className="font-medium text-zinc-900 dark:text-zinc-100">{value}</dd>
     </div>
   );
 }

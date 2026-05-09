@@ -43,7 +43,7 @@ export function NeedsFilterClient({ needs }: NeedsFilterClientProps) {
           placeholder="Search needs…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-amber-500/50 focus:outline-none focus:ring-2 focus:ring-amber-500/25"
+          className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-500 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-500/30 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-400"
         />
       </div>
       <div
@@ -62,8 +62,8 @@ export function NeedsFilterClient({ needs }: NeedsFilterClientProps) {
               onClick={() => setCategory(c.id)}
               className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
                 selected
-                  ? "border-amber-500/60 bg-amber-500/15 text-amber-100"
-                  : "border-white/15 bg-white/5 text-white/70 hover:border-white/25 hover:text-white/90"
+                  ? "border-amber-600 bg-amber-100 text-amber-900 dark:border-amber-400/70 dark:bg-amber-400/15 dark:text-amber-100"
+                  : "border-zinc-300 bg-white text-zinc-700 hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
               }`}
             >
               {c.label}
@@ -72,7 +72,7 @@ export function NeedsFilterClient({ needs }: NeedsFilterClientProps) {
         })}
       </div>
       {filtered.length === 0 ? (
-        <p className="rounded-xl border border-white/10 bg-white/5 p-6 text-center text-sm text-white/60">
+        <p className="rounded-xl border border-zinc-300 bg-white p-6 text-center text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-300">
           No needs match this filter.
         </p>
       ) : (

@@ -24,12 +24,12 @@ export default async function DashboardHomePage({ params }: Props) {
   if (!data) {
     return (
       <div className="flex min-h-[50vh] flex-col items-center justify-center py-12 text-center">
-        <h2 className="text-xl font-bold text-white">No demo data for this ZIP</h2>
-        <p className="mt-3 max-w-md text-white/65">
+        <h2 className="text-xl font-bold text-zinc-900 dark:text-white">No demo data for this ZIP</h2>
+        <p className="mt-3 max-w-md text-zinc-700 dark:text-zinc-300">
           Try the sample community at{" "}
           <Link
             href="/dashboard/92104"
-            className="font-semibold text-amber-300 underline underline-offset-2 hover:text-amber-200"
+            className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-600 dark:text-amber-300 dark:hover:text-amber-200"
           >
             /dashboard/92104
           </Link>
@@ -43,8 +43,8 @@ export default async function DashboardHomePage({ params }: Props) {
 
   return (
     <div>
-      <p className="mb-6 text-sm leading-relaxed text-white/55">
-        <span className="text-white/40">Updates:</span> Auto-refresh every 5s
+      <p className="mb-6 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+        <span className="text-zinc-600 dark:text-zinc-400">Updates:</span> Auto-refresh every 5s
         (demo placeholder).
       </p>
 
@@ -63,8 +63,8 @@ export default async function DashboardHomePage({ params }: Props) {
         </div>
       </section>
 
-      <div className="mb-8 rounded-xl border border-amber-500/25 bg-amber-950/30 p-4 text-sm text-amber-50/90">
-        <strong className="text-amber-100">Privacy:</strong> Aggregate counts
+      <div className="mb-8 rounded-xl border border-amber-400/35 bg-amber-100/80 p-4 text-sm text-amber-900 dark:border-amber-500/25 dark:bg-amber-950/30 dark:text-amber-50/90">
+        <strong className="text-amber-900 dark:text-amber-100">Privacy:</strong> Aggregate counts
         and anonymous household IDs only — never street addresses or contact
         info. Medical concerns are summarized as &quot;medical device power
         support&quot; where applicable.

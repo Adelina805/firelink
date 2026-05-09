@@ -24,10 +24,10 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
   if (!data) {
     return (
       <div className="flex min-h-[40vh] flex-col items-center justify-center py-12 text-center">
-        <p className="text-white/65">No data for this ZIP.</p>
+        <p className="text-zinc-700 dark:text-zinc-300">No data for this ZIP.</p>
         <Link
           href="/dashboard/92104"
-          className="mt-3 text-sm font-semibold text-amber-300 hover:text-amber-200"
+          className="mt-3 text-sm font-semibold text-amber-700 hover:text-amber-600 dark:text-amber-300 dark:hover:text-amber-200"
         >
           Open demo ZIP
         </Link>
@@ -39,10 +39,10 @@ export default async function DashboardHouseholdsPage({ params }: Props) {
 
   return (
     <div>
-      <h2 className="mb-2 text-lg font-semibold text-white">
+      <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
         Anonymous household status
       </h2>
-      <p className="mb-6 text-sm text-white/55">
+      <p className="mb-6 text-sm text-zinc-700 dark:text-zinc-300">
         Snapshot by anonymous ID — no names or addresses.
       </p>
 

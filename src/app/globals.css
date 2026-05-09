@@ -1,8 +1,19 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  --background: #fffaf3;
+  --foreground: #1f2937;
+  /* Sticky chrome (header / bottom nav): tied to .dark in CSS so it never follows OS theme alone */
+  --chrome-surface: #ffffff;
+  --chrome-border: #d4d4d8;
+}
+
+.dark {
   --background: #09090b;
   --foreground: #fafafa;
+  --chrome-surface: #09090b;
+  --chrome-border: #3f3f46;
 }
 
 @theme inline {
@@ -17,8 +28,39 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   background-image:
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(180, 83, 9, 0.35), transparent 50%),
-    radial-gradient(ellipse 80% 50% at 100% 50%, rgba(220, 38, 38, 0.12), transparent 45%),
-    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(251, 191, 36, 0.08), transparent 40%);
+    radial-gradient(
+      ellipse 120% 80% at 50% -20%,
+      rgba(245, 158, 11, 0.22),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 80% 50% at 100% 50%,
+      rgba(220, 38, 38, 0.08),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 0% 80%,
+      rgba(251, 191, 36, 0.07),
+      transparent 40%
+    );
   background-attachment: fixed;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(
+      ellipse 120% 80% at 50% -20%,
+      rgba(180, 83, 9, 0.35),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 80% 50% at 100% 50%,
+      rgba(220, 38, 38, 0.12),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 0% 80%,
+      rgba(251, 191, 36, 0.08),
+      transparent 40%
+    );
 }
